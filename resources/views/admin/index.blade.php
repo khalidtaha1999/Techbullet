@@ -16,6 +16,7 @@
     <!-- Custom styles for this template-->
     <link href="{{asset('css/sb-admin-2.css')}}" rel="stylesheet">
     <script src="{{ asset('js/app.js') }}" defer></script>
+
 </head>
 <body id="page-top">
 <!-- Page Wrapper -->
