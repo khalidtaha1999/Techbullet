@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Course;
-use App\Models\Slide;
+use App\Models\Quiz;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
-class Admin_Slide_Controller extends Controller
+class Admin_Quiz_Controller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +15,8 @@ class Admin_Slide_Controller extends Controller
      */
     public function index()
     {
-        $slide=Slide::all();
-        return view('admin.slide.slide_index',compact('slide'));
+        $quiz=Quiz::all();
+        return view('admin.quiz.quiz_view',compact('quiz'));
     }
 
     /**
@@ -28,7 +27,7 @@ class Admin_Slide_Controller extends Controller
     public function create()
     {
         $Courses=Course::get()->pluck('name','id')->toArray();      /* in select for fetch all columns from database */
-        return view('admin.slide.create_slide',compact('Courses'));
+        return view('admin.quiz.quiz_create',compact('Courses'));
     }
 
     /**
@@ -39,30 +38,20 @@ class Admin_Slide_Controller extends Controller
      */
     public function store(Request $request)
     {
-        if($request->file('file'))
-        {
-            $file = $request->file('file');
-            $filename = time() . $file->getClientOriginalName();
-            $filePath = public_path() . '/files/uploads/';
-            $file->move($filePath, $filename);
-        }
-        $name=$request->name;
-        $course_id=$request->Course_id;
-        Slide::create(['name'=>$name,'Course_id'=>$course_id,'file'=>$filename]);
-        return redirect('/admin/slide');
+        $input=$request->all();
+        Quiz::create($input);
+        return redirect('/admin/quiz');
     }
+
     /**
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Symfony\Component\HttpFoundation\BinaryFileResponse
+     * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $dl=Slide::FindOrFail($id);
-        $myFile = public_path('files\uploads\\'.$dl->file);
-        return response()->download($myFile);
-
+        //
     }
 
     /**
@@ -74,10 +63,8 @@ class Admin_Slide_Controller extends Controller
     public function edit($id)
     {
         $Courses=Course::get()->pluck('name','id')->toArray();      /* in select for fetch all columns from database */
-
-        $slide=Slide::FindOrFail($id);
-        return view('admin.slide.edit_slide',compact('slide','Courses'));
-
+        $quiz=Quiz::findOrFail($id);
+        return view('admin.quiz.quiz_edit',compact('quiz','Courses'));
     }
 
     /**
@@ -89,20 +76,12 @@ class Admin_Slide_Controller extends Controller
      */
     public function update(Request $request, $id)
     {
-
-        $slide=Slide::FindOrFail($id);
-        if($file=$request->file('file')){
-            unlink(public_path('files\uploads\\'.$slide->file));
-            $name= time() . $file->getClientOriginalName();
-            $file->move('files\uploads\\',$name);
-            $slide->update(['file'=>$name]);
-        }
-        $name=$request->name;
-        $course_id=$request->Course_id;
-        $slide->update(['name'=>$name,'Course_id'=>$course_id]);
-        return redirect('/admin/slide');
-
+        $input=$request->all();
+        $quiz=Quiz::findOrFail($id);
+        $quiz->update($input);
+        return redirect('/admin/quiz');
     }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -111,12 +90,8 @@ class Admin_Slide_Controller extends Controller
      */
     public function destroy($id)
     {
-        $slide=Slide::FindOrFail($id);
-        $filename=public_path('files\uploads\\'.$slide->file);
-        if((file_exists($filename))) {
-            unlink('files\uploads\\'.$slide->file);
-        }
-        $slide->delete();
-        return redirect('/admin/slide');
+        $quiz=Quiz::findOrFail($id);
+        $quiz->delete();
+        return redirect('/admin/quiz');
     }
 }
