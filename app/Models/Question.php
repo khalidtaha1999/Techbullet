@@ -12,7 +12,9 @@ class Question extends Model
         'quiz_id','title','point'
     ];
 
-
+    public function quiz(){
+        return $this->belongsTo(Quiz::class,'quiz_id');
+    }
     public function Answer(){
         return $this->belongsTo(Answer::class,'Question_id');
     }

@@ -22,24 +22,29 @@
                 @if(Session::has('delete_user'))
                     <h4 class="alert-danger text-center">{{session('delete_user')}}</h4>
                 @endif
-                <h1 class="text-center">Courses</h1>
+                <h1 class="text-center">Questions</h1>
             </div>
             <div class="card-body">
-                <a href="/admin/course/create"><button class="btn-primary">Create New Course</button></a>
+                <a href="/admin/question/create"><button class="btn-primary">Create New Question</button></a>
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                         <tr>
                             <th scope="row">Id</th>
-                            <th>Name</th>
+
+                            <th>Question</th>
+                            <th>Quiz</th>
+                            <th>Point</th>
+
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($course as $courses)
+                        @foreach($question as $questiones)
                             <tr>
-                                <td>{{$courses->id}}</td>
-                                <td><a href="/admin/course/{{$courses->id}}/edit"> {{$courses->name}}</a></td>
-{{--                                <td>{{$courses->slide->first()->name}}</td>--}}
+                                <td>{{$questiones->id}}</td>
+                                <td><a href="/admin/question/{{$questiones->id}}/edit"> {{$questiones->title}}</a></td>
+                                <td>{{$questiones->quiz->name}}</td>
+                                <td>{{$questiones->point}}</td>
                             </tr>
                         @endforeach
                         </tbody>
