@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin_Answer_Controller;
 use App\Http\Controllers\Admin_Course_Controller;
 use App\Http\Controllers\Admin_Question_Controller;
 use App\Http\Controllers\Admin_Quiz_Controller;
@@ -38,6 +39,8 @@ Route::group(['middleware'=>'admin'],function(){
     Route::resource('admin/slide',Admin_Slide_Controller::class);
     Route::resource('admin/quiz',Admin_Quiz_Controller::class);
     Route::resource('admin/question',Admin_Question_Controller::class);
+    Route::resource('admin/answer',Admin_Answer_Controller::class);
+
 });
 
 
