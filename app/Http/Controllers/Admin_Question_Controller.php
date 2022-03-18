@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Answer;
 use App\Models\Question;
 use App\Models\Quiz;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class Admin_Question_Controller extends Controller
 {
@@ -34,14 +36,27 @@ class Admin_Question_Controller extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|\never
      */
     public function store(Request $request)
     {
-        $input=$request->all();
-        Question::create($input);
-        return redirect('/admin/question');
-    }
+        $data=new Question();
+        $data->title=$request->title;
+        $data->point=$request->point;
+        $data->quiz_id=$request->quiz_id;
+        $data->save();
+
+        $counter = 1;
+        foreach ($request->answer as $answerString) {
+            $answer = new Answer();
+            $answer->answer=$answerString;
+            $answer->is_right=$request->{"is_right" . $counter};
+            $answer->Question_id=$data->id;
+            $answer->save();
+            $counter++;
+        }
+        return redirect('/admin/question/create');
+        }
 
     /**
      * Display the specified resource.

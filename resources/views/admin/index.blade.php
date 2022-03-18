@@ -73,10 +73,8 @@
             <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">All Users</h6>
-                    <a class="collapse-item" href="/admin/diploma">Our Diploma</a>
+                    <a class="collapse-item" href="/admin/slide">All slides</a>
                     <a class="collapse-item" href="/admin/course">All Course</a>
-                    <a class="collapse-item" href="/admin/company">All Company</a>
-
                 </div>
             </div>
         </li>
@@ -85,14 +83,13 @@
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
                 <i class="fas fa-handshake"></i>
-                <span>Partners</span>
+                <span>Quizzes</span>
             </a>
             <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">All Partners</h6>
-                    <a class="collapse-item" href="/admin/partners">All Partners</a>
-                    <a class="collapse-item" href="/admin/solutions">All Solutions</a>
-                    <a class="collapse-item" href="/admin/consulting">All Consulting</a>
+                    <h6 class="collapse-header">All quizzes</h6>
+                    <a class="collapse-item" href="/admin/quiz">All Quizzes</a>
+                    <a class="collapse-item" href="/admin/question">All Questions</a>
                 </div>
             </div>
         </li>
@@ -115,6 +112,8 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Blogs</h6>
                     <a class="collapse-item" href="/admin/blog">All Blogs</a>
+                    <a class="collapse-item" href="/admin/blog">All advertisements</a>
+
                 </div>
             </div>
         </li>

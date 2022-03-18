@@ -9,7 +9,7 @@
 </head>
 <body>
 @include('admin.index')
-<h1 class="text-center">Create Quiz</h1>
+<h1 class="text-center">Create Question</h1>
 <div class="container">
     {!! Form::open(['method' => 'POST','action'=>'App\Http\Controllers\Admin_Question_Controller@store','files'=>true]) !!}
     <div class="form-group">
@@ -24,9 +24,51 @@
         {!! Form::label('quiz_id','Quiz:') !!}
         {!! Form::select('quiz_id',[''=>'Choose Option']+$quiz,'',['class'=>'form-control']) !!}
     </div>
+    <h1 class="text-center">Answer</h1>
+    <div class="form-group">
+        {!! Form::label('answer','Answer 1:') !!}
+        {!! Form::text('answer[]',null,['class'=>'form-control form-control-user']) !!}
+        {{Form::radio( 'is_right1','true')}}
+        {{Form::label('active', 'true')}}
+        {{Form::radio('is_right1', 'false',true)}}
+        {{Form::label('active', 'false')}}
+
+    </div>
+    <div class="form-group">
+        {!! Form::label('answer','Answer 2:') !!}
+        {!! Form::text("answer[]",null,['class'=>'form-control form-control-user']) !!}
+        {{Form::radio( 'is_right2','true')}}
+        {{Form::label('active', 'true')}}
+        {{Form::radio('is_right2', 'false',true)}}
+        {{Form::label('active', 'false')}}
+
+    </div>
+    <div class="form-group">
+        {!! Form::label('answer','Answer 3:') !!}
+        {!! Form::text('answer[]',null,['class'=>'form-control form-control-user']) !!}
+        {{Form::radio( 'is_right3','true')}}
+        {{Form::label('active', 'true')}}
+        {{Form::radio('is_right3', 'false',true)}}
+        {{Form::label('active', 'false')}}
+
+    </div>
+    <div class="form-group">
+        {!! Form::label('answer4','Answer 4:') !!}
+        {!! Form::text('answer[]',null,['class'=>'form-control form-control-user']) !!}
+        {{Form::radio( 'is_right4','true')}}
+        {{Form::label('active', 'true')}}
+        {{Form::radio('is_right4','false', true)}}
+        {{Form::label('active', 'false')}}
+
+    </div>
     {!! Form::submit('save',['class'=>'btn btn-primary']) !!}
+
     {!! Form::close() !!}
 </div>
+
+
+
+
 @include('include.error_forms')
 
 </body>

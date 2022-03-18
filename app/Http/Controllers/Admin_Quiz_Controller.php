@@ -40,7 +40,7 @@ class Admin_Quiz_Controller extends Controller
     {
         $input=$request->all();
         Quiz::create($input);
-        return redirect('/admin/quiz');
+        return redirect('/admin/question/create');
     }
 
     /**
