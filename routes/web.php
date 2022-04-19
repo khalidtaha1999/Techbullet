@@ -8,6 +8,8 @@ use App\Http\Controllers\Admin_Slide_Controller;
 use App\Http\Controllers\AdminAdvertisementController;
 use App\Http\Controllers\AdminBlogController;
 use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\Blog_Controller;
+use App\Http\Controllers\Course_controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -46,7 +48,8 @@ Route::group(['middleware'=>'admin'],function(){
 
 
 
-
+Route::resource('/blog',Blog_Controller::class);
+Route::resource('/course',Course_controller::class);
 
 
 Auth::routes();
