@@ -22,7 +22,6 @@
           </div>
         </div>
           @endforeach
-
       </div>
     </section>
 </body>

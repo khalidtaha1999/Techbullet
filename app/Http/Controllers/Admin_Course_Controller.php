@@ -36,8 +36,14 @@ class Admin_Course_Controller extends Controller
      */
     public function store(Request $request)
     {
-        $input=$request->all();
-        Course::create($input);
+
+        if($file=$request->file('image')){
+            $name= time() . $file->getClientOriginalName();
+            $file->move('images',$name);
+        }
+        $course_name=$request->name;
+        Course::create(['name'=>$course_name,'image'=>$name]);
+
         return redirect('/admin/course');
     }
 

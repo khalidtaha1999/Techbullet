@@ -18,7 +18,7 @@
         <ul>
             <li class="active"><a href="/">Home</a></li>
             <li><a href="#">About</a></li>
-            <li><a href="#">Subjects</a></li>
+            <li><a href="/course">Subjects</a></li>
             <li><a href="#">Announcements</a></li>
             <li><a href="/blog">Blogs</a></li>
             <li class="login"><a href="/login">Login</a></li>

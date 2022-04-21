@@ -16,6 +16,12 @@
         {!! Form::label('name','Name:') !!}
         {!! Form::text('name',null,['class'=>'form-control form-control-user']) !!}
     </div>
+
+    <div class="form-group">
+        {!! Form::label('image','Image:') !!}
+        {!! Form::file('image',null,['class'=>'form-control form-control-user']) !!}
+    </div>
+
     {!! Form::submit('save',['class'=>'btn btn-primary']) !!}
     {!! Form::close() !!}
 </div>

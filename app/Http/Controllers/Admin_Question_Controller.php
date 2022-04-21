@@ -94,6 +94,7 @@ class Admin_Question_Controller extends Controller
         $question=Question::findOrFail($id);
         $input=$request->all();
         $question->update($input);
+
         return redirect('/admin/question');
     }
 

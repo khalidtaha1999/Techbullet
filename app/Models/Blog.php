@@ -9,7 +9,11 @@ class Blog extends Model
 {
     use HasFactory;
     protected $fillable=[
-      'title','body','image'
+      'title','body','image','user_id'
     ];
+
+    public function user(){
+        return $this->belongsTo(User::class,'user_id');
+    }
 
 }

@@ -6,6 +6,8 @@ use App\Http\Requests\BlogEditRequest;
 use App\Http\Requests\BlogRequest;
 use App\Models\Blog;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class AdminBlogController extends Controller
@@ -46,19 +48,25 @@ class AdminBlogController extends Controller
         }
         $title=$request->title;
         $body=$request->body;
-       Blog::create(['title'=>$title,'body'=>$body,'image'=>$name]);
-       return redirect('/admin/blog');
+        $id=Auth::id();
+        Blog::create(['title'=>$title,'body'=>$body,'image'=>$name,'user_id'=>$id]);
+        return redirect('/admin/blog');
     }
 
     /**
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function show($id)
     {
-        //
+        echo "its worked";
+        $blog=Blog::findOrFail($id);
+        DB::table('blogs')
+            ->where('id', $blog->id)
+            ->update(['pending' => "1"]);
+           return redirect()->back();
     }
 
     /**
@@ -92,7 +100,7 @@ class AdminBlogController extends Controller
         }
         $title=$request->title;
         $body=$request->body;
-      $blog->update(['title'=>$title,'body'=>$body]);
+       $blog->update(['title'=>$title,'body'=>$body]);
         return redirect('/admin/blog');
     }
 

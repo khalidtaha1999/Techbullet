@@ -16,7 +16,8 @@ class Blog_Controller extends Controller
     public function index()
     {
         $blog=Blog::all();
-        return view('website.blog.blog',compact('blog'));
+        $Rblog=Blog::inRandomOrder()->limit(5)->get();;
+        return view('website.blog.blog',compact('blog','Rblog'));
     }
 
     /**
@@ -49,7 +50,9 @@ class Blog_Controller extends Controller
     public function show($id)
     {
         $blog=Blog::findOrFail($id);
-      return view('website.blog.solo_blog',compact('blog'));
+        $Rblog=Blog::inRandomOrder()->limit(5)->get();;
+
+        return view('website.blog.solo_blog',compact('blog','Rblog'));
     }
 
     /**

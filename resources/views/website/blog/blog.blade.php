@@ -35,17 +35,20 @@
         </div>
         <div class="recent-blogs-container grid">
             @foreach($blog as $blogs)
-          <a class="blog" href="/blog/{{$blogs->id}}">
+                @if($blogs->pending===1)
+
+                <a class="blog" href="/blog/{{$blogs->id}}">
             <img src="./images/{{$blogs->image}}" alt="blog">
             <div class="data">
               <div class="info-reading">
-                <span>{{$blogs->created_at}}</span>
+                <span>{{$blogs->created_at->format('d/m/Y')}}</span>
                 <!-- <span class="space"></span> -->
-                <span>Mazen Ziad</span>
+                <span>{{$blogs->user->name}}</span>
               </div>
               <h4>{{$blogs->title}}</h4>
             </div>
           </a>
+                @endif
             @endforeach
 
         </div>
@@ -54,76 +57,31 @@
         <div class="header">
           <h3>Random Blogs</h3>
         </div>
+          <?php
+          $i=1;
+          ?>
+          @foreach($Rblog as $Rblogs)
+              @if($blogs->pending===1)
         <a href="#" class="blog">
           <div class="image-cont">
-            <span>01</span>
-            <img src="./images/older_posts_4.jpg" alt="blog">
+
+            <span>{{$i++}}</span>
+            <img src="./images/{{$Rblogs->image}}" alt="blog">
           </div>
           <div class="text">
             <div class="info-reading">
-              <span>Dec 5th 2021</span>
+              <span>{{$Rblogs->created_at->format('d/m/Y')}}</span>
               <span class="space"></span>
-              <span>Mazen Ziad</span>
+              <span>{{$Rblogs->user->name}}</span>
             </div>
-            <h3>Nice Building</h3>
+            <h3>{{$Rblogs->title}}</h3>
           </div>
         </a>
-        <a href="#" class="blog">
-          <div class="image-cont">
-            <span>02</span>
-            <img src="./images/older_posts_4.jpg" alt="blog">
-          </div>
-          <div class="text">
-            <div class="info-reading">
-              <span>Dec 5th 2021</span>
-              <span class="space"></span>
-              <span>Mazen Ziad</span>
-            </div>
-            <h3>Nice Building</h3>
-          </div>
-        </a>
-        <a href="#" class="blog">
-          <div class="image-cont">
-            <span>03</span>
-            <img src="./images/older_posts_4.jpg" alt="blog">
-          </div>
-          <div class="text">
-            <div class="info-reading">
-              <span>Dec 5th 2021</span>
-              <span class="space"></span>
-              <span>Mazen Ziad</span>
-            </div>
-            <h3>Nice Building</h3>
-          </div>
-        </a>
-        <a href="#" class="blog">
-          <div class="image-cont">
-            <span>04</span>
-            <img src="./images/older_posts_4.jpg" alt="blog">
-          </div>
-          <div class="text">
-            <div class="info-reading">
-              <span>Dec 5th 2021</span>
-              <span class="space"></span>
-              <span>Mazen Ziad</span>
-            </div>
-            <h3>Nice Building</h3>
-          </div>
-        </a>
-        <a href="#" class="blog">
-          <div class="image-cont">
-            <span>05</span>
-            <img src="./images/older_posts_4.jpg" alt="blog">
-          </div>
-          <div class="text">
-            <div class="info-reading">
-              <span>Dec 5th 2021</span>
-              <span class="space"></span>
-              <span>Mazen Ziad</span>
-            </div>
-            <h3>Nice Building</h3>
-          </div>
-        </a>
+              @endif
+          @endforeach
+
+
+
       </div>
     </div>
   </section>
