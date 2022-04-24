@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\slide_create_request;
+use App\Http\Requests\slide_update_request;
 use App\Models\Course;
 use App\Models\Slide;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 
 class Admin_Slide_Controller extends Controller
@@ -37,8 +40,9 @@ class Admin_Slide_Controller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
-    public function store(Request $request)
+    public function store(slide_create_request $request)
     {
+        Session::flash('create_slide','Slide has been created');
         if($request->file('file'))
         {
             $file = $request->file('file');
@@ -87,8 +91,10 @@ class Admin_Slide_Controller extends Controller
      * @param  int  $id
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
-    public function update(Request $request, $id)
+    public function update(slide_update_request $request, $id)
     {
+        Session::flash('update_slide','Slide has been updated');
+
 
         $slide=Slide::FindOrFail($id);
         if($file=$request->file('file')){
@@ -111,6 +117,7 @@ class Admin_Slide_Controller extends Controller
      */
     public function destroy($id)
     {
+        Session::flash('delete_slide','Slide has been deleted');
         $slide=Slide::FindOrFail($id);
         $filename=public_path('files\uploads\\'.$slide->file);
         if((file_exists($filename))) {

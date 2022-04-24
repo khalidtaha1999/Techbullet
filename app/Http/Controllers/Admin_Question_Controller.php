@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\question_request;
 use App\Models\Answer;
 use App\Models\Question;
 use App\Models\Quiz;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 class Admin_Question_Controller extends Controller
 {
@@ -38,23 +40,20 @@ class Admin_Question_Controller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|\never
      */
-    public function store(Request $request)
+    public function store(question_request $request)
     {
+        Session::flash('create_question','Question has been created');
         $data=new Question();
         $data->title=$request->title;
         $data->point=$request->point;
         $data->quiz_id=$request->quiz_id;
+        $data->option_a=$request->option_a;
+        $data->option_b=$request->option_b;
+        $data->option_c=$request->option_c;
+        $data->option_d=$request->option_d;
+        $data->correct_answer=$request->correct_answer;
         $data->save();
 
-        $counter = 1;
-        foreach ($request->answer as $answerString) {
-            $answer = new Answer();
-            $answer->answer=$answerString;
-            $answer->is_right=$request->{"is_right" . $counter};
-            $answer->Question_id=$data->id;
-            $answer->save();
-            $counter++;
-        }
         return redirect('/admin/question/create');
         }
 
@@ -89,11 +88,35 @@ class Admin_Question_Controller extends Controller
      * @param  int  $id
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
-    public function update(Request $request, $id)
+    public function update(question_request $request, $id)
     {
-        $question=Question::findOrFail($id);
-        $input=$request->all();
-        $question->update($input);
+        Session::flash('update_question','Question has been updated');
+        $data = Question::find($id);
+        $data->title=$request->title;
+        $data->point=$request->point;
+        $data->quiz_id=$request->quiz_id;
+        $data->option_a=$request->option_a;
+        $data->option_b=$request->option_b;
+        $data->option_c=$request->option_c;
+        $data->option_d=$request->option_d;
+        $data->correct_answer=$request->correct_answer;
+        $data->save();
+
+//        $counter = 1;
+//        foreach ($request->answer as $answerString) {
+//            $aid=new Answer();
+//            $answer=$answerString;
+//            $is_right=$request->{"is_right" . $counter};
+//            $Question_id=$data->id;
+//            Answer::where([
+//               [ 'Question_id', '=', $data->id],
+//                ['is_right','=','true'],
+//            ])
+//                ->update(['answer' => $answer,'is_right'=>$is_right,'Question_id'=>$Question_id]);
+//            $counter++;
+//        }
+
+
 
         return redirect('/admin/question');
     }
@@ -106,6 +129,7 @@ class Admin_Question_Controller extends Controller
      */
     public function destroy($id)
     {
+        Session::flash('delete_question','Question has been deleted');
         $question=Question::findOrFail($id);
         $question->delete();
         return redirect('admin/question');

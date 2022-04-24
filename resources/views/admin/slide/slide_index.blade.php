@@ -13,14 +13,14 @@
     <div  class="container-fluid">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                @if(Session::has('create_user'))
-                    <h4 class="alert-success text-center">{{session('create_user')}}</h4>
+                @if(Session::has('create_slide'))
+                    <h4 class="alert-success text-center">{{session('create_slide')}}</h4>
                 @endif
-                @if(Session::has('update_user'))
-                    <h4 class="alert-success text-center">{{session('update_user')}}</h4>
+                @if(Session::has('update_slide'))
+                    <h4 class="alert-success text-center">{{session('update_slide')}}</h4>
                 @endif
-                @if(Session::has('delete_user'))
-                    <h4 class="alert-danger text-center">{{session('delete_user')}}</h4>
+                @if(Session::has('delete_slide'))
+                    <h4 class="alert-danger text-center">{{session('delete_slide')}}</h4>
                 @endif
                 <h1 class="text-center">Slide</h1>
             </div>

@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\course_create_request;
+use App\Http\Requests\course_update_request;
 use App\Models\Course;
+use App\Models\Question;
+use App\Models\Quiz;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class Admin_Course_Controller extends Controller
 {
@@ -34,8 +39,9 @@ class Admin_Course_Controller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
-    public function store(Request $request)
+    public function store(course_create_request $request)
     {
+        Session::flash('create_course','Course has been created');
 
         if($file=$request->file('image')){
             $name= time() . $file->getClientOriginalName();
@@ -69,7 +75,6 @@ class Admin_Course_Controller extends Controller
         $course=Course::FindOrFail($id);
         return view('admin.course.edit_course',compact('course'));
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -77,14 +82,14 @@ class Admin_Course_Controller extends Controller
      * @param  int  $id
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
-    public function update(Request $request, $id)
+    public function update(course_update_request $request, $id)
     {
+        Session::flash('update_course','Course has been updated');
         $input=$request->all();
         $course=Course::FindOrFail($id);
         $course->update($input);
         return redirect('/admin/course');
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -93,8 +98,13 @@ class Admin_Course_Controller extends Controller
      */
     public function destroy($id)
     {
+        Session::flash('delete_course','Course has been deleted');
         $course=Course::FindOrFail($id);
         $course->delete();
+        $quiz=Quiz::where('Course-id',$course->id)->first();
+        $question=Question::where('quiz_id',$quiz->id);
+        $question->delete();
+        $quiz->delete();
         return redirect('/admin/course');
     }
 }

@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\quiz_create_request;
+use App\Http\Requests\quiz_request;
 use App\Models\Course;
+use App\Models\Question;
 use App\Models\Quiz;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class Admin_Quiz_Controller extends Controller
 {
@@ -36,8 +40,9 @@ class Admin_Quiz_Controller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
-    public function store(Request $request)
+    public function store(quiz_request $request)
     {
+        Session::flash('create_quiz','Quiz has been created');
         $input=$request->all();
         Quiz::create($input);
         return redirect('/admin/question/create');
@@ -74,8 +79,9 @@ class Admin_Quiz_Controller extends Controller
      * @param  int  $id
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
-    public function update(Request $request, $id)
+    public function update(quiz_request $request, $id)
     {
+        Session::flash('update_quiz','Quiz has been updated');
         $input=$request->all();
         $quiz=Quiz::findOrFail($id);
         $quiz->update($input);
@@ -90,8 +96,11 @@ class Admin_Quiz_Controller extends Controller
      */
     public function destroy($id)
     {
+        Session::flash('delete_quiz','Quiz has been deleted');
         $quiz=Quiz::findOrFail($id);
         $quiz->delete();
+        $question=Question::where('quiz_id',$quiz->id);
+        $question->delete();
         return redirect('/admin/quiz');
     }
 }

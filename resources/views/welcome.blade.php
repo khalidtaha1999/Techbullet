@@ -48,23 +48,7 @@
     <div class="right-baner" style="background-image: url('{{asset('images/banner-right-image11.png')}}')" ></div>
 </section>
 
-<footer>
-    <div class="footer-decoration"></div>
-    <div class="footer-content">
-        <div class="footer-logo">
-            <p class="logo"><span style="color: #03a4ed;">Tech</span> <span style="color: #ff695f">Bullet</span></p>
-            <p class="email">example@gmail.com</p>
-            <div class="icons">
-                <div>
-                    <i class="fab fa-facebook-f"></i>
-                </div>
-                <div>
-                    <i class="fab fa-twitter"></i>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
+@include('include.footer')
 
 
 </body>

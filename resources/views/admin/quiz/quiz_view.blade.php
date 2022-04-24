@@ -13,14 +13,11 @@
     <div  class="container-fluid">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                @if(Session::has('create_user'))
-                    <h4 class="alert-success text-center">{{session('create_user')}}</h4>
+                @if(Session::has('update_quiz'))
+                    <h4 class="alert-success text-center">{{session('update_quiz')}}</h4>
                 @endif
-                @if(Session::has('update_user'))
-                    <h4 class="alert-success text-center">{{session('update_user')}}</h4>
-                @endif
-                @if(Session::has('delete_user'))
-                    <h4 class="alert-danger text-center">{{session('delete_user')}}</h4>
+                @if(Session::has('delete_quiz'))
+                    <h4 class="alert-danger text-center">{{session('delete_quiz')}}</h4>
                 @endif
                 <h1 class="text-center">Quizzes</h1>
             </div>
@@ -40,7 +37,11 @@
                             <tr>
                                 <td>{{$quizzes->id}}</td>
                                 <td><a href="/admin/quiz/{{$quizzes->id}}/edit"> {{$quizzes->name}}</a></td>
+                                @if ($quizzes->course)
+                                    <span class="cat-links">
                                 <td>{{$quizzes->course->name}}</td>
+                                    </span>
+                                @endif
                             </tr>
                         @endforeach
                         </tbody>

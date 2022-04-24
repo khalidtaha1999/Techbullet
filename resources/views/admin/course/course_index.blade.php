@@ -13,14 +13,14 @@
     <div  class="container-fluid">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                @if(Session::has('create_user'))
-                    <h4 class="alert-success text-center">{{session('create_user')}}</h4>
+                @if(Session::has('create_course'))
+                    <h4 class="alert-success text-center">{{session('create_course')}}</h4>
                 @endif
-                @if(Session::has('update_user'))
-                    <h4 class="alert-success text-center">{{session('update_user')}}</h4>
+                @if(Session::has('update_course'))
+                    <h4 class="alert-success text-center">{{session('update_course')}}</h4>
                 @endif
-                @if(Session::has('delete_user'))
-                    <h4 class="alert-danger text-center">{{session('delete_user')}}</h4>
+                @if(Session::has('delete_course'))
+                    <h4 class="alert-danger text-center">{{session('delete_course')}}</h4>
                 @endif
                 <h1 class="text-center">Courses</h1>
             </div>
@@ -39,7 +39,6 @@
                             <tr>
                                 <td>{{$courses->id}}</td>
                                 <td><a href="/admin/course/{{$courses->id}}/edit"> {{$courses->name}}</a></td>
-{{--                                <td>{{$courses->slide->first()->name}}</td>--}}
                             </tr>
                         @endforeach
                         </tbody>

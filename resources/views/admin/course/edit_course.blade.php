@@ -19,6 +19,10 @@
         {!! Form::label('name','Name:') !!}
         {!! Form::text('name',null,['class'=>'form-control']) !!}
     </div>
+    <div class="form-group">
+        {!! Form::label('image','Image:') !!}
+        {!! Form::file('image',['class'=>'form-control form-control-user']) !!}
+    </div>
     {!! Form::submit('Save',['class'=>'btn btn-primary col-sm-1 ','id'=>'confirmedit']) !!}
     {!! Form::close() !!}
         {!! Form::open(['method' => 'DELETE','action'=>['App\Http\Controllers\Admin_Course_Controller@destroy',$course->id]]) !!}
