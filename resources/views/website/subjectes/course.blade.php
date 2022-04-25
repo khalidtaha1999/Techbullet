@@ -16,7 +16,7 @@
 
 @foreach($course as $courses)
         <div class="course">
-          <img src="{{asset('images/'.$courses->image)}}">
+            <a href="/course/{{$courses->id}}"><img src="{{asset('images/'.$courses->image)}}"></a>
           <div class="image-info">
             <p>{{$courses->name}}</p>
           </div>

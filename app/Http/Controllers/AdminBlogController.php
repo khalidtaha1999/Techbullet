@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\blog_create_request;
+use App\Http\Requests\blog_update_request;
 use App\Http\Requests\BlogEditRequest;
 use App\Http\Requests\BlogRequest;
 use App\Models\Blog;
@@ -39,7 +41,7 @@ class AdminBlogController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
-    public function store(BlogRequest $request)
+    public function store(blog_create_request $request)
     {
         Session::flash('create_blog','Blog Has Been Created');
         if($file=$request->file('image')){
@@ -88,7 +90,7 @@ class AdminBlogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
-    public function update(BlogEditRequest $request, $id)
+    public function update(blog_update_request $request, $id)
     {
         Session::flash('update_blog','Blog Has Been Updated');
         $blog=Blog::findOrFail($id);

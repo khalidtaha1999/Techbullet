@@ -10,6 +10,7 @@ use App\Http\Controllers\AdminBlogController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\Blog_Controller;
 use App\Http\Controllers\Course_controller;
+use App\Http\Controllers\Quiz_controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -41,7 +42,6 @@ Route::group(['middleware'=>'admin'],function(){
     Route::resource('admin/slide',Admin_Slide_Controller::class);
     Route::resource('admin/quiz',Admin_Quiz_Controller::class);
     Route::resource('admin/question',Admin_Question_Controller::class);
-    Route::resource('admin/answer',Admin_Answer_Controller::class);
 
 });
 
@@ -50,6 +50,8 @@ Route::group(['middleware'=>'admin'],function(){
 
 Route::resource('/blog',Blog_Controller::class);
 Route::resource('/course',Course_controller::class);
+Route::resource('/quiz',Quiz_controller::class);
+
 
 
 Auth::routes();

@@ -21,7 +21,11 @@
             <li><a href="/course">Subjects</a></li>
             <li><a href="#">Announcements</a></li>
             <li><a href="/blog">Blogs</a></li>
-            <li class="login"><a href="/login">Login</a></li>
+            @if(\Illuminate\Support\Facades\Auth::user())
+                <li class="login"><a href="/login">{{\Illuminate\Support\Facades\Auth::user()->name}}</a></li>
+            @else
+                <li class="login"><a href="/login">Login</a></li>
+            @endif
         </ul>
     </div>
     <div class="menu-toggler">

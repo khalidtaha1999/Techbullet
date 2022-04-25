@@ -3,22 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Course;
+use App\Models\Question;
 use App\Models\Quiz;
-use App\Models\Slide;
 use Illuminate\Http\Request;
 
-class Course_controller extends Controller
+class Quiz_controller extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $course=Course::all();
-        return view('website.subjectes.course',compact('course'));
+        //
     }
 
     /**
@@ -50,24 +48,22 @@ class Course_controller extends Controller
      */
     public function show($id)
     {
-        $course=Course::findOrfail($id);
-        $quiz=Quiz::where('Course-id',$course->id)->get();
-        $slide=Slide::where('Course_id',$course->id)->get();
-        return view('website.subjectes.course_solo',compact('course','quiz','slide'));
+        $quiz=Quiz::findOrfail($id);
+        $question=Question::where('quiz_id',$quiz->id)->get();
+
+        return view('website.quiz.quizpage',compact('quiz','question'));
+
     }
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Symfony\Component\HttpFoundation\BinaryFileResponse
+     * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $dl=Slide::FindOrFail($id);
-        $myFile = public_path('files\uploads\\'.$dl->file);
-        return response()->download($myFile);
-
+        //
     }
 
     /**

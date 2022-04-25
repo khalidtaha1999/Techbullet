@@ -1,0 +1,246 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a{
+  text-decoration: none;
+  color: inherit;
+}
+header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  box-shadow: 1px 0 8px #ccc;
+  padding: 1.5rem 2rem;
+  position: relative;
+  background:  #f1f1f1;
+}
+header > a {
+  font-size: 1.5rem;
+  color: #03a4ed;
+  font-weight: bold;
+}
+
+header > a span{
+  color: #ff685f;
+}
+header .menu ul{
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  padding: 3rem 3rem .5rem;
+  width: 80%;
+  position: absolute;
+  right: 0;
+  top: 4.8rem;
+  background:  #f1f1f1;
+  box-shadow: 1px 0 20px #ccc;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-50%);
+  transition: 0.5s;
+  z-index: 9999;
+}
+header .menu ul.active{
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+
+
+
+header .menu ul li{
+  width: fit-content;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  color: rgba(0,0,0,.6);
+}
+header .menu ul li:hover:not(:last-of-type) a{
+  transition: 0.25s;
+  color: #ff685f;
+}
+header .menu ul li.active{
+  color: #ff685f;
+}
+header .menu ul li.login{
+  margin-top: -5px;
+  padding: 0.5rem 2rem;
+  background: #ff695f;
+  border-radius: 30px;
+  color: white;
+  transition: background-color 0.3s;
+}
+header .menu ul li.login:hover{
+  background: #03a4ed;
+}
+
+header .menu-toggler{
+  width: 25px;
+  height: 25px;
+}
+header .menu-toggler button{
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.hidden{
+  display: none;
+}
+@media screen and (min-width:930px) {
+  header .menu{
+    padding: 0;
+    margin-right: 50px;
+  }
+  header .menu ul{  
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+    flex-direction: row;
+    align-items: center;
+    position: initial;
+    background: inherit;
+    box-shadow: initial;
+    width: 100%;
+    padding: 0;
+  }
+  header .menu ul li{
+    margin: 0;
+    margin-left: 30px;
+
+  }
+  header .menu ul li.login{
+    margin: 0;
+    margin-left: 30px;
+    padding: 0.5rem 2rem;
+  }
+  .menu-toggler{
+    display: none;
+  }
+
+}
+
+
+
+.subject{
+  position: relative;
+}
+.subject .left-image{
+  position: absolute;
+  z-index: -1;
+  animation: move 5s forwards infinite ease-in-out;
+}
+.subject .right-image{
+  position: absolute;
+  z-index: -1;
+  right: 0;
+  top: 110px;
+  animation: moveright 5s forwards infinite ease-in-out 1s;
+}
+.subject > h2{
+  width: fit-content;
+  margin: 30px auto;
+  padding: 10px 40px;
+  box-shadow: 1px 1px 8px #ccc;
+  border-radius: 20px;
+}
+.subject .info-cont{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.subject .slides-h2,.subject .quiz-h2{
+  background: #ff685f;
+  width: fit-content;
+  padding: 10px 25px;
+  color: white;
+  border-radius: 20px;
+}
+.subject ul{
+  list-style-type: none;
+}
+.subject .info-cont .slides{
+  padding: 30px;
+  box-shadow: 1px 1px 10px #dfdfdf;
+  background-image: url("./images/card-image2.png");
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  max-width: 35rem;
+  margin-top: 30px;
+  border-radius: 30px;
+}
+.subject .info-cont .slides ul{
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.subject .info-cont .quiz-section{
+  padding: 30px;
+  background-image: url("./images/card-image.png");
+  background-size: cover;
+  box-shadow: 1px 1px 10px #ccc;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  max-width: 35rem;
+  margin-top: 30px;
+  border-radius: 30px;
+}
+.subject .info-cont .quiz-section ul{
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  /* max-width: 450px; */
+}
+.subject ul li{
+  margin-top: 35px;
+  text-align: center;
+
+}
+.subject ul li a{
+  display: block;
+  padding: 10px 15px;
+  background: #03a4ed;
+  margin-left: 10px;
+  margin-right: 10px;
+  min-width: 120px;
+  color: white;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+.subject ul li a:hover{
+  background: #ff685f;
+}
+
+@keyframes move {
+  0%{
+    transform: translatey(0);
+  }
+  50%{
+    transform: translatey(50px);
+  }
+  100%{
+    transform: translatey(0);
+  }
+  
+}
+@keyframes moveright {
+  0%{
+    transform: translatey(0);
+  }
+  50%{
+    transform: translatey(50px);
+  }
+  100%{
+    transform: translatey(0);
+  }
+  
+}
