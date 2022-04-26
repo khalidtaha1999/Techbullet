@@ -17,7 +17,7 @@ class CreateAdvertisementsTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('image');
-            $table->text('body');
+            $table->longText('body');
             $table->timestamps();
         });
     }

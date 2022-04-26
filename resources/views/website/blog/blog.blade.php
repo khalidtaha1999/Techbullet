@@ -62,7 +62,7 @@
           ?>
           @foreach($Rblog as $Rblogs)
               @if($blogs->pending===1)
-        <a href="#" class="blog">
+        <a href="/blog/{{$Rblogs->id}}" class="blog">
           <div class="image-cont">
 
             <span>{{$i++}}</span>

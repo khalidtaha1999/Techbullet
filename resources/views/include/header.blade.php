@@ -19,7 +19,7 @@
             <li class="active"><a href="/">Home</a></li>
             <li><a href="#">About</a></li>
             <li><a href="/course">Subjects</a></li>
-            <li><a href="#">Announcements</a></li>
+            <li><a href="/announcement">Announcements</a></li>
             <li><a href="/blog">Blogs</a></li>
             @if(\Illuminate\Support\Facades\Auth::user())
                 <li class="login"><a href="/login">{{\Illuminate\Support\Facades\Auth::user()->name}}</a></li>

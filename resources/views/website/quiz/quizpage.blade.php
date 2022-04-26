@@ -12,11 +12,11 @@
 <body>
 @include('include.header')
 <section class="quiz-name">
-    <h2>C++ Quiz</h2>
+    <h2>{{$quiz->name}}</h2>
 </section>
 <section class="quiz-section">
     <div class="subject-redirect">
-        <h3>To Study More About C++</h3>
+        <h3>To Study More About {{$quiz->course->name}}</h3>
         <a href="#">Click Here</a>
     </div>
     <div class="animation">
@@ -24,28 +24,34 @@
     </div>
     <div class="quiz-container">
         <form id="quiz-form">
+            <?php
+            $i=0;
+            ?>
             @foreach($question as $questions)
             <div class="quiz">
                 <h3>{{$questions->title}}</h3>
                 <div id="c++_1">
                     <div>
-                        <input id="c++_1_1" type="radio" name="q1" answer="1">
+                        <input id="c++_1_1" type="radio" name="q{{$i}}" answer="1">
                         <label for="c++_1_1">{{$questions->option_a}}</label>
                     </div>
                     <div>
-                        <input id="c++_1_2" type="radio" name="q1" answer="0">
+                        <input id="c++_1_2" type="radio" name="q{{$i}}" answer="0">
                         <label for="c++_1_2">{{$questions->option_b}}</label>
                     </div>
                     <div>
-                        <input id="c++_1_3" type="radio" name="q1" answer="0">
+                        <input id="c++_1_3" type="radio" name="q{{$i}}" answer="0">
                         <label for="c++_1_3">{{$questions->option_c}}</label>
                     </div>
                     <div>
-                        <input id="c++_1_4" type="radio" name="q1" answer="0">
+                        <input id="c++_1_4" type="radio" name="q{{$i}}" answer="0">
                         <label for="c++_1_4">{{$questions->option_d}}</label>
                     </div>
                 </div>
             </div>
+                <?php
+                    $i++;
+                ?>
             @endforeach
             <div class="submit">
                 <button type="submit">Submit</button>
@@ -60,6 +66,5 @@
         <button class="close">close</button>
     </div>
 </div>
-
 </body>
 </html>

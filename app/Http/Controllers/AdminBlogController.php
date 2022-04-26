@@ -51,7 +51,11 @@ class AdminBlogController extends Controller
         $title=$request->title;
         $body=$request->body;
         $id=Auth::id();
-        Blog::create(['title'=>$title,'body'=>$body,'image'=>$name,'user_id'=>$id]);
+      $blog=  Blog::create(['title'=>$title,'body'=>$body,'image'=>$name,'user_id'=>$id]);
+        DB::table('blogs')
+            ->where('id', $blog->id)
+            ->update(['pending' => "1"]);
+
         return redirect('/admin/blog');
     }
 
@@ -63,7 +67,6 @@ class AdminBlogController extends Controller
      */
     public function show($id)
     {
-        echo "its worked";
         $blog=Blog::findOrFail($id);
         DB::table('blogs')
             ->where('id', $blog->id)

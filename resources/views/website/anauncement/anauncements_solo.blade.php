@@ -17,23 +17,21 @@
       <img src="{{asset('images/videos-left-dec.png')}}" alt="">
         <img src="{{asset('images/videos-right-dec.png')}}" alt="">
       <div class="anouncement">
-        <h1>{{$blog->title}}</h1>
-        <i class="fa-regular fa-clock"><span>{{$blog->created_at->format('d/m/Y')}}</span></i>
-        <i class="fa-regular fa-user"><span>{{$blog->user->name}}</span></i>
+        <h1>{{$anauncements->title}}</h1>
+        <i class="fa-regular fa-clock"><span>{{$anauncements->created_at->format('d/m/Y')}}</span></i>
         <br />
-        <img src="{{asset('images/'.$blog->image)}}" alt="" />
+        <img src="{{asset('images/'.$anauncements->image)}}" alt="" />
         <p >
-          {!!$blog->body!!}
+          {!! $anauncements->body !!}
         </p>
       </div>
       <ul class="other-anouncements">
-          @foreach($Rblog as $Rblogs)
+          @foreach($Ranauncement as $Ranauncements)
         <li class="single-li">
-          <h3>{{$Rblogs->title}}</h3>
-          <img src="{{asset('images/'.$Rblogs->image)}}" alt="">
-          <i class="fa-regular fa-user"><span>{{$Rblogs->user->name}}</span></i>
-          <i class="fa-regular fa-clock"><span>{{$Rblogs->created_at->format('d/m/Y')}}</span></i>
-        <button><a href="/blog/{{$Rblogs->id}}">Read</a></button>
+          <h3>{{$Ranauncements->title}}</h3>
+          <img src="{{asset('images/'.$Ranauncements->image)}}" alt="">
+          <i class="fa-regular fa-clock"><span>{{$Ranauncements->created_at->format('d/m/Y')}}</span></i>
+        <button><a href="/announcement/{{$Ranauncements->id}}">Read</a></button>
         </li>
           @endforeach
       </ul>

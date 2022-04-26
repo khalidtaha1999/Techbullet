@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin_Slide_Controller;
 use App\Http\Controllers\AdminAdvertisementController;
 use App\Http\Controllers\AdminBlogController;
 use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\Anauncement_controller;
 use App\Http\Controllers\Blog_Controller;
 use App\Http\Controllers\Course_controller;
 use App\Http\Controllers\Quiz_controller;
@@ -51,6 +52,7 @@ Route::group(['middleware'=>'admin'],function(){
 Route::resource('/blog',Blog_Controller::class);
 Route::resource('/course',Course_controller::class);
 Route::resource('/quiz',Quiz_controller::class);
+Route::resource('/announcement',Anauncement_controller::class);
 
 
 
