@@ -26,28 +26,41 @@
         <form id="quiz-form">
             <?php
             $i=0;
+            $a=1;
             ?>
             @foreach($question as $questions)
-            <div class="quiz">
+            <div class="quiz" answer="{{$questions->correct_answer}}">
                 <h3>{{$questions->title}}</h3>
                 <div id="c++_1">
                     <div>
-                        <input id="c++_1_1" type="radio" name="q{{$i}}" answer="1">
-                        <label for="c++_1_1">{{$questions->option_a}}</label>
+                        <input id="c++_1_{{$a}}" type="radio" name="q{{$i}}">
+                        <label for="c++_1_{{$a}}">{{$questions->option_a}}</label>
                     </div>
+                    <?php
+                    $a++;
+                ?>
                     <div>
-                        <input id="c++_1_2" type="radio" name="q{{$i}}" answer="0">
-                        <label for="c++_1_2">{{$questions->option_b}}</label>
+                        <input id="c++_1_{{$a}}" type="radio" name="q{{$i}}">
+                        <label for="c++_1_{{$a}}">{{$questions->option_b}}</label>
                     </div>
+                    <?php
+                    $a++;
+                ?>
                     <div>
-                        <input id="c++_1_3" type="radio" name="q{{$i}}" answer="0">
-                        <label for="c++_1_3">{{$questions->option_c}}</label>
+                        <input id="c++_1_{{$a}}" type="radio" name="q{{$i}}">
+                        <label for="c++_1_{{$a}}">{{$questions->option_c}}</label>
                     </div>
+                    <?php
+                    $a++;
+                ?>
                     <div>
-                        <input id="c++_1_4" type="radio" name="q{{$i}}" answer="0">
-                        <label for="c++_1_4">{{$questions->option_d}}</label>
+                        <input id="c++_1_{{$a}}" type="radio" name="q{{$i}}">
+                        <label for="c++_1_{{$a}}">{{$questions->option_d}}</label>
                     </div>
                 </div>
+                <?php
+                    $a++;
+                ?>
             </div>
                 <?php
                     $i++;
