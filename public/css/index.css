@@ -129,10 +129,10 @@ body{
     transition: 0.25s;
     color: #ff685f;
   }
-  header .menu ul li.active{
+  header .menu ul li.active a{
     color: #ff685f;
   }
-  header .menu ul li.login{
+  header .menu ul li.login a{
     margin-top: -5px;
     padding: 0.5rem 2rem;
     background: #ff695f;
@@ -140,7 +140,7 @@ body{
     color: white;
     transition: background-color 0.3s;
   }
-  header .menu ul li.login:hover{
+  header .menu ul li.login:hover a{
     background: #03a4ed;
   }
 
