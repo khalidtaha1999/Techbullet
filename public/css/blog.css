@@ -173,7 +173,7 @@ header .menu-toggler button{
   /* display: flex; */
   margin-bottom: 20px;
   background: #f1f1f1;;
-  
+
 }
 .header-text > div{
   padding: 1rem 0;
@@ -348,7 +348,7 @@ header .menu-toggler button{
     padding: 0;
     margin-right: 50px;
   }
-  header .menu ul{  
+  header .menu ul{
     opacity: 1;
     visibility: visible;
     transform: translateX(0);
@@ -385,7 +385,7 @@ header .menu-toggler button{
   }
   .recent-blogs-section .left-side{
     /* flex-basis: 80%; */
-    margin-right: 30px; 
+    margin-right: 30px;
   }
   .recent-blogs-section .right-side{
     /* flex-basis: 20%; */

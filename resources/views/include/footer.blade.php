@@ -10,7 +10,8 @@
 </head>
 <body>
 <footer>
-    <div class="footer-decoration"></div>
+
+    <div class="footer-decoration" style="background-image: url({{asset('images/footer-decoration.png')}})"></div>
     <div class="footer-content">
         <div class="footer-logo">
             <p class="logo"><span style="color: #03a4ed;">Tech</span> <span style="color: #ff695f">Bullet</span></p>

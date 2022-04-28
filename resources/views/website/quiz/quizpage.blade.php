@@ -17,7 +17,7 @@
 <section class="quiz-section">
     <div class="subject-redirect">
         <h3>To Study More About {{$quiz->course->name}}</h3>
-        <a href="#">Click Here</a>
+        <a href="/course/{{$quiz->course->id}}">Click Here</a>
     </div>
     <div class="animation">
         <div><img src="{{asset('images/services-right-dec.png')}}"></div>

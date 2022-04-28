@@ -7,8 +7,8 @@
     <title>Tech Bullet</title>
     <link rel="stylesheet" href="{{asset('css/index.css')}}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/brands.min.css" integrity="sha512-rQgMaFKZKIoTKfYInSVMH1dSM68mmPYshaohG8pK17b+guRbSiMl9dDbd3Sd96voXZeGerRIFFr2ewIiusEUgg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="header.js" defer></script>
-    <script src="project bau.js" defer></script>
+
+
 </head>
 <body>
 <!-- <section id="navBar" class="nav-bar">

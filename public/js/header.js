@@ -10,18 +10,3 @@ closeListToggler.addEventListener("click", () => {
   humbToggler.classList.remove("hidden");
   document.querySelector("header .menu ul").classList.toggle("active");
 });
-
-
-
-
-// const readButtons = document.getElementsByClassName("read-button");
-
-// const readMoreHandler = () => {
-
-//   window.open('./anouncement solo.html','_self');
-// };
-// for (const button of readButtons) {
-//   button.addEventListener("click", readMoreHandler);
-// }
-
-

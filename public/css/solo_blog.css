@@ -119,7 +119,7 @@ body {
 }
 .single-li {
   border-bottom: 3px solid #9b9b9b;
-  
+
   position: relative;
   /* padding: 3%; */
   margin: 2rem 0;
@@ -136,20 +136,20 @@ left: 1.5%;
   margin: 0;
 }
 .single-li h3{
-   width: 97%; 
+   width: 97%;
    color: #696969;
    height: 10%;
   top: 2%;
   left:1.5%;
   overflow: hidden;
-} 
+}
 .single-li img{
    width: 50%;
    height:80%;
    top:17% ;
  }
  .single-li i{
-   
+
    left: 53%;
    color: #55bbeb;
    text-transform: capitalize;

@@ -98,7 +98,7 @@ header .menu-toggler button{
     padding: 0;
     margin-right: 50px;
   }
-  header .menu ul{  
+  header .menu ul{
     opacity: 1;
     visibility: visible;
     transform: translateX(0);
@@ -230,7 +230,7 @@ header .menu-toggler button{
   100%{
     transform: translatey(0);
   }
-  
+
 }
 @keyframes moveright {
   0%{
@@ -242,5 +242,5 @@ header .menu-toggler button{
   100%{
     transform: translatey(0);
   }
-  
+
 }

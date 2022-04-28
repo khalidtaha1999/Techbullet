@@ -10,8 +10,10 @@
 <body>
    @include('include.header')
     <section class="quiz-courses">
-      <div class="left-baner"></div>
-      <div class="right-baner"></div>
+
+
+        <div class="left-baner" style="background-image:url({{asset('images/baner-dec-left\ 11.png')}})"></div>
+      <div class="right-baner" style="background-image: url({{asset('images/services-right-dec.png')}})"></div>
       <div class="courses-cont">
 
 @foreach($course as $courses)
