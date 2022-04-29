@@ -46,6 +46,7 @@
                     <?php
                     $a++;
                 ?>
+                    @if($questions->option_c!=0)
                     <div>
                         <input id="c++_1_{{$a}}" type="radio" name="q{{$i}}">
                         <label for="c++_1_{{$a}}">{{$questions->option_c}}</label>
@@ -57,11 +58,18 @@
                         <input id="c++_1_{{$a}}" type="radio" name="q{{$i}}">
                         <label for="c++_1_{{$a}}">{{$questions->option_d}}</label>
                     </div>
+                    @else
+                    @endif
                 </div>
+
+
+
+
                 <?php
                     $a++;
                 ?>
             </div>
+
                 <?php
                     $i++;
                 ?>
