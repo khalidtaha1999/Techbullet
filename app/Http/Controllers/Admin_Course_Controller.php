@@ -7,6 +7,7 @@ use App\Http\Requests\course_update_request;
 use App\Models\Course;
 use App\Models\Question;
 use App\Models\Quiz;
+use App\Models\Slide;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -101,6 +102,8 @@ class Admin_Course_Controller extends Controller
         Session::flash('delete_course','Course has been deleted');
         $course=Course::FindOrFail($id);
         $course->delete();
+        $slide=Slide::where('Course_id',$course->id)->first();
+        $slide->delete();
         $quiz=Quiz::where('Course-id',$course->id)->first();
         $question=Question::where('quiz_id',$quiz->id);
         $question->delete();
