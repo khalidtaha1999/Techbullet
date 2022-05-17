@@ -22,12 +22,19 @@
             <li><a href="/course">Subjects</a></li>
             <li><a href="/announcement">Announcements</a></li>
             <li><a href="/blog">Blogs</a></li>
-            @if(\Illuminate\Support\Facades\Auth::user())
-                <li class="login"><a href="/login">{{\Illuminate\Support\Facades\Auth::user()->name}}</a></li>
+            @if(Auth::check())
+                @if(Auth::user()->checkRole())
+                <li class="login"><a href="/admin">{{\Illuminate\Support\Facades\Auth::user()->name}}</a></li>
+               @else
+                    <li class="login"><a href="/home">{{\Illuminate\Support\Facades\Auth::user()->name}}</a></li>
+              @endif
             @else
                 <li class="login"><a href="/login">Login</a></li>
+
             @endif
         </ul>
+
+
     </div>
     <div class="menu-toggler">
         <button class="humb"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z"/></svg></button>

@@ -12,6 +12,7 @@ use App\Http\Controllers\Anauncement_controller;
 use App\Http\Controllers\Blog_Controller;
 use App\Http\Controllers\Course_controller;
 use App\Http\Controllers\Quiz_controller;
+use App\Http\Controllers\User_Create_blog;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -53,8 +54,11 @@ Route::resource('/blog',Blog_Controller::class);
 Route::resource('/course',Course_controller::class);
 Route::resource('/quiz',Quiz_controller::class);
 Route::resource('/announcement',Anauncement_controller::class);
-
-
+Route::resource('/createblog',User_Create_blog::class);
+Route::get('/logout',function (){
+    Auth::logout();
+    return redirect('/login');
+});
 
 Auth::routes();
 
