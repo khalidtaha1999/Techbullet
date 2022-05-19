@@ -49,8 +49,20 @@ class Admin_Question_Controller extends Controller
         $data->quiz_id=$request->quiz_id;
         $data->option_a=$request->option_a;
         $data->option_b=$request->option_b;
-        $data->option_c=$request->option_c;
-        $data->option_d=$request->option_d;
+        if(empty( $request->option_c)) {
+            $data->option_c=0;
+        }
+        else{
+            $data->option_c = $request->option_c;
+
+        }
+        if(empty($request->option_d)) {
+            $data->option_d=0;
+        }
+        else{
+            $data->option_d = $request->option_d;
+
+        }
         $data->correct_answer=$request->correct_answer;
         $data->save();
 
@@ -101,7 +113,6 @@ class Admin_Question_Controller extends Controller
         $data->option_d=$request->option_d;
         $data->correct_answer=$request->correct_answer;
         $data->save();
-
 //        $counter = 1;
 //        foreach ($request->answer as $answerString) {
 //            $aid=new Answer();

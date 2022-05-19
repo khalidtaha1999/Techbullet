@@ -25,7 +25,7 @@ class question_request extends FormRequest
     {
         return [
           'quiz_id'=>'required','title'=>'required','point'=>'required|numeric|min:1|max:100',
-          'option_a'=>'required','option_b'=>'required','option_c'=>'required','option_d'=>'required',
+          'option_a'=>'required','option_b'=>'required',
             'correct_answer'=>'required'
         ];
     }

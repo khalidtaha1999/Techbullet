@@ -1,24 +1,32 @@
+
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
 
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
+
+    <h1 class="text-center">Create Blogs</h1>
+    <div class="container">
+        {!! Form::open(['method' => 'POST','action'=>'App\Http\Controllers\User_Create_blog@store','files'=>true]) !!}
+        <div class="form-group">
+            {!! Form::label('title','Title:') !!}
+            {!! Form::text('title',null,['class'=>'form-control form-control-user']) !!}
         </div>
+        <div class="form-group">
+            {!! Form::label('body :','Body:') !!}
+            {!! Form::textarea('body',null,['class'=>'form-control']) !!}
+        </div>
+        <div class="form-group">
+            {!! Form::label('image','Image:') !!}
+            {!! Form::file('image',['class'=>'form-control']) !!}
+        </div>
+
+        {!! Form::submit('save',['class'=>'btn btn-primary']) !!}
+        {!! Form::close() !!}
     </div>
-</div>
+
+
+    <a href="logout">logout</a>
+
 @endsection
 
