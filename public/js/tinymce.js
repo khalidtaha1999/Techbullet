@@ -7,7 +7,7 @@ tinymce.init({
     menubar: 'file edit view insert format tools table help',
     toolbar: 'undo redo | bold italic underline strikethrough | fontfamily fontsize blocks | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print  | ltr rtl',
     toolbar_sticky: true,
-    toolbar_sticky_offset: isSmallScreen ? 102 : 108,
+    toolbar_sticky_offset: isSmallScreen ? 102 : 0,
     autosave_ask_before_unload: true,
     autosave_interval: '30s',
     autosave_prefix: '{path}{query}-{id}-',

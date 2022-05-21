@@ -154,6 +154,7 @@ header .menu-toggler button {
   right: 0;
   bottom: 0;
   animation: the-first-img 15s ease-in-out infinite alternate;
+  pointer-events: none;
 }
 
 .anouncments-yard {
@@ -226,6 +227,10 @@ header .menu-toggler button {
 }
 .anouncments-iner-div2 button a:hover {
   color: white;
+}
+
+.anouncments-iner-div2 .backend-text img{
+  max-height: 100px;
 }
 
 @keyframes the-first-img {

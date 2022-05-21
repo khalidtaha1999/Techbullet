@@ -193,10 +193,14 @@ header .menu-toggler button{
   overflow: hidden;
   /* border:1px solid #03a4ed; */
   /* max-height: 300px; */
+  box-shadow: 1px 1px 8px #ccc;
+  border-radius: 5px;
 }
 .recent-blogs-container .blog img{
   width: 100%;
   height: 100%;
+  object-fit: contain;
+
 }
 .recent-blogs-container .blog .data{
   position: absolute;
@@ -280,7 +284,7 @@ header .menu-toggler button{
   position: absolute;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .recent-blogs-section .right-side a.blog .text{

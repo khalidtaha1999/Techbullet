@@ -27,9 +27,12 @@
             <div class="anouncments-iner-div2">
                 <h2>{{$anauncements->title}}</h2>
                 <span> </span>
-                <p>
-                    {!! $anauncements->body !!}
-                </p>
+                <div style="max-height: 146px; overflow: hidden" class="backend-text">
+                    <p>
+                        {!! $anauncements->body !!}
+                    </p>
+                </div>
+                
                 <button class="read-button"><a href="/announcement/{{$anauncements->id}}">read more</a></button>
             </div>
         </div>

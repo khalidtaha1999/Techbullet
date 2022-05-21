@@ -6,9 +6,9 @@
             <div id="logInDummyDiv">
                 <img src="images/secu.svg">
             </div>
-            <div id="logInForm">
+            <div id="logInForm" style="background-image: url({{asset('images/contact-form-bg.png')}})">
 
-                <form class="form-style" method="POST" action="{{ route('register') }}">
+                <form class="form-style" method="POST" action="{{ route('register') }}" >
                     @csrf
 
                     <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name"
