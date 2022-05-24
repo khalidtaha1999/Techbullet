@@ -40,11 +40,17 @@
                     <tbody>
 
                     @foreach($blog as $blogs)
+
                         <tr>
                             <td>{{$blogs->id}}</td>
                             <td><img width="100px" src="/images/{{$blogs->image}}" alt=""></td>
                             <td><a href="/admin/blog/{{$blogs->id}}/edit">{{$blogs->title}}</a></td>
+                            @if($blogs->user)
                             <td>{{$blogs->user->name}}</td>
+                            @else
+                                <td>User</td>
+                            @endif
+
                             <td><a href="/admin/blog/{{$blogs->id}}"> @if($blogs->pending==0) Approve @endif </a> </td>
                         </tr>
                     @endforeach

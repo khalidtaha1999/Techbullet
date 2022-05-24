@@ -17,11 +17,28 @@
     </a>
     <div class="menu">
         <ul>
-            <li class="active"><a href="/">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="/course">Subjects</a></li>
-            <li><a href="/announcement">Announcements</a></li>
-            <li><a href="/blog">Blogs</a></li>
+            <li  @if((strpos($_SERVER['REQUEST_URI'], "/")) )
+                 class="active"
+                @endif  >  <a href="/">Home</a></li>
+
+            <li  @if((strpos($_SERVER['REQUEST_URI'], "about")) )
+                 class="active"
+                @endif  > <a href="/about">About</a></li>
+
+
+            <li @if((strpos($_SERVER['REQUEST_URI'], "course")) )
+                class="active"
+                @endif ><a href="/course">Subjects</a></li>
+
+
+            <li @if((strpos($_SERVER['REQUEST_URI'], "announcement")) )
+                class="active"
+                @endif ><a href="/announcement">Announcements</a></li>
+
+            <li @if((strpos($_SERVER['REQUEST_URI'], "blog")) )
+                class="active"
+                @endif ><a href="/blog">Blogs</a></li>
+
             @if(Auth::check())
                 @if(Auth::user()->checkRole())
                 <li class="login"><a href="/admin">{{\Illuminate\Support\Facades\Auth::user()->name}}</a></li>

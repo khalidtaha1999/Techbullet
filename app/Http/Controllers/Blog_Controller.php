@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class Blog_Controller extends Controller
 {
@@ -15,7 +16,7 @@ class Blog_Controller extends Controller
      */
     public function index()
     {
-        $blog=Blog::all();
+        $blog=Blog::skip(3)->take(PHP_INT_MAX)->paginate(6);
         $Rblog=Blog::inRandomOrder()->limit(5)->get();;
         return view('website.blog.blog',compact('blog','Rblog'));
     }

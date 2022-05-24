@@ -24,7 +24,7 @@
     <!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/home">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
             <div class="sidebar-brand-icon rotate-n-15">
             </div>
 
@@ -112,7 +112,7 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Blogs</h6>
                     <a class="collapse-item" href="/admin/blog">All Blogs</a>
-                    <a class="collapse-item" href="/admin/blog">All advertisements</a>
+                    <a class="collapse-item" href="/admin/advertisement">All advertisements</a>
 
                 </div>
             </div>
