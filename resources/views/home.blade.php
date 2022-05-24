@@ -25,8 +25,8 @@
         {!! Form::close() !!}
     </div>
 
-
-    <a href="logout">logout</a>
+    
+    <a class="btn btn-primary" style="margin-left: 20px" href="/logout" role="button">Logout</a>
 
 @endsection
 
