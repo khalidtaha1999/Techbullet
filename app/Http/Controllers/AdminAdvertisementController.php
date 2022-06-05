@@ -109,8 +109,9 @@ class AdminAdvertisementController extends Controller
     {
         Session::flash('delete_ad','Advertisement Has Been Deleted');
         $ad=Advertisement::findOrFail($id);
-        if(!empty($ad->image)){
-            unlink('images/'.$ad->image);
+        $filename=public_path('files\uploads\\'.$ad->image);
+        if((file_exists($filename))) {
+            unlink('files\uploads\\'.$ad->image);
         }
         $ad->delete();
         return redirect('/admin/advertisement');

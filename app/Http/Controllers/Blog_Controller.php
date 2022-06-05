@@ -16,7 +16,7 @@ class Blog_Controller extends Controller
      */
     public function index()
     {
-        $blog=Blog::skip(3)->take(PHP_INT_MAX)->paginate(6);
+        $blog=Blog::orderBy('id','DESC')->skip(3)->take(PHP_INT_MAX)->paginate(6);
         $Rblog=Blog::inRandomOrder()->limit(5)->get();;
         return view('website.blog.blog',compact('blog','Rblog'));
     }

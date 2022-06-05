@@ -108,6 +108,11 @@ class Admin_Course_Controller extends Controller
         $question=Question::where('quiz_id',$quiz->id);
         $question->delete();
         $quiz->delete();
+        $filename=public_path('files\uploads\\'.$course->image);
+        if((file_exists($filename))) {
+            unlink('files\uploads\\'.$course->image);
+        }
+        
         return redirect('/admin/course');
     }
 }

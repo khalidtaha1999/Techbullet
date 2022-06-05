@@ -203,13 +203,15 @@ header .menu-toggler button{
   z-index: 10;
   bottom: 0;
   padding: 1rem .5rem;
-  height: 14%;
+  height: 25%;
   max-height: 40%;
   width: 100%;
   background: #f1f1f1be;
   transition: 0.25s;
 }
-
+.recent-blogs-container .blog:first-of-type .data{
+  height: 13%;
+}
 .info-reading{
   display: flex;
   width: 100%;
@@ -475,6 +477,10 @@ header .menu-toggler button{
 }
 .older-blogs .blogs-container .blog .left-side .data p{
   margin-right: 25px;
+}
+.older-blogs .blogs-container .blog .left-side .info{
+  max-height: 110px;
+  overflow: hidden;
 } 
 .older-blogs .blogs-container .blog .left-side .info p{
   text-overflow: ellipsis;

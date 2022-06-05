@@ -24,9 +24,11 @@
         {!! Form::submit('save',['class'=>'btn btn-primary']) !!}
         {!! Form::close() !!}
     </div>
-
+    @include('include.error_forms')
     
     <a class="btn btn-primary" style="margin-left: 20px" href="/logout" role="button">Logout</a>
+
+
 
 @endsection
 

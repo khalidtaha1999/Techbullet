@@ -88,13 +88,14 @@
                     <span>User</span>
                 @endif
             </div>
-            <h3>{{$Rblogs->title}}</h3>
+            <h4>{{$Rblogs->title}}</h4>
           </div>
         </a>
               @endif
           @endforeach
       </div>
     </div>
+  </section>
       <section class="older-blogs">
           <h2>Older Blogs</h2>
           <div class="blogs-container">
@@ -113,7 +114,7 @@
                           @endif
                       </div>
                       <div class="info">
-                          <h2>{{$blogs->title}}</h2>
+                          <h4>{{$blogs->title}}</h4>
                           <p>{!! $blogs->body !!}</p>
                       </div>
                   </div>
@@ -127,7 +128,7 @@
 
           </div>
       </section>
-  </section>
+
 </body>
 <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
 <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>

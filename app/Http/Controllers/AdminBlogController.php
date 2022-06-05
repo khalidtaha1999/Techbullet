@@ -119,8 +119,9 @@ class AdminBlogController extends Controller
     {
         Session::flash('delete_blog','Blog Has Been Deleted');
         $blog=Blog::findOrFail($id);
-        if(!empty($blog->image)) {
-            unlink('images/'.$blog->image);
+        $filename=public_path('files\uploads\\'.$blog->image);
+        if((file_exists($filename))) {
+            unlink('files\uploads\\'.$blog->image);
         }
         $blog->delete();
         return redirect('/admin/blog');
