@@ -20,11 +20,7 @@
             <li  @if((strpos($_SERVER['REQUEST_URI'], "/")) )
                  class="active"
                 @endif  >  <a href="/">Home</a></li>
-
-            <li  @if((strpos($_SERVER['REQUEST_URI'], "about")) )
-                 class="active"
-                @endif  > <a href="/about">About</a></li>
-
+                
 
             <li @if((strpos($_SERVER['REQUEST_URI'], "course")) )
                 class="active"
