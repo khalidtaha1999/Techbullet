@@ -39,6 +39,6 @@
         @endforeach
     </div>
 </section>
-@include('include.footer')
+{{-- @include('include.footer') --}}
 </body>
 </html>

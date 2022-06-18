@@ -24,7 +24,8 @@ class AdvertisementEditRequest extends FormRequest
     public function rules()
     {
         return [
-            'title'=>'required','body'=>'required'
+            'title'=>'required','body'=>'required',
+            'image'=>'image|mimes:jpeg,png,jpg,gif,svg|max:12048'
         ];
     }
 }

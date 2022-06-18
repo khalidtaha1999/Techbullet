@@ -24,7 +24,7 @@ class slide_update_request extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'required','Course_id'=>'required','file' => 'mimes:doc,pdf,docx,zip,ppt|max:10000'
+            'name'=>'required','Course_id'=>'required','file' => 'mimes:doc,pdf,docx,zip,ppt|max:100000'
 
         ];
     }

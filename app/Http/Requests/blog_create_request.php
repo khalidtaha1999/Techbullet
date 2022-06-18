@@ -25,7 +25,7 @@ class blog_create_request extends FormRequest
     {
         return [
             'title'=>'required','body'=>'required',
-            'image'=>'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'image'=>'required|image|mimes:jpeg,png,jpg,gif,svg|max:12048'
         ];
     }
 }

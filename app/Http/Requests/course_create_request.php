@@ -24,7 +24,7 @@ class course_create_request extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'required','image'=>'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'name'=>'required','image'=>'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048'
         ];
     }
 }

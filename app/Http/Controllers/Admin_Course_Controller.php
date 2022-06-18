@@ -86,10 +86,19 @@ class Admin_Course_Controller extends Controller
     public function update(course_update_request $request, $id)
     {
         Session::flash('update_course','Course has been updated');
-        $input=$request->all();
-        $course=Course::FindOrFail($id);
-        $course->update($input);
-        return redirect('/admin/course');
+      
+
+        $course=Course::findOrFail($id);
+        if($file=$request->file('image')){
+            unlink('images/'.$course->image);
+            $name= time() . $file->getClientOriginalName();
+            $file->move('images',$name);
+            $course->update(['image'=>$name]);
+        }
+        $name=$request->name;
+        
+       $course->update(['name'=>$name]);
+       return redirect('/admin/course');
     }
     /**
      * Remove the specified resource from storage.
